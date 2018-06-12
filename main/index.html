@@ -5,175 +5,20 @@
 		<!-- TO DO
 			1. logos
 			2. format text 
-			3. resizing -> container {hidden***REMOVED***
+			~~3. resizing -> container {hidden***REMOVED*** 
+			4. padLock resizing past 600px
+			5. scatter.js -> adjust cubeNumber 2 viewport
 		 -->
 	</title>
-	<style type="text/css">
-		@font-face {
-			font-family: "DINPro";
-			src: url("fonts/DINPro-Light.ttf");
-			src: 
-			url("fonts/DINPro-Light.woff") format("woff"),
-			url("fonts/DINPro-Light.otf") format("opentype")
-			***REMOVED***
-		html, body{
-			width: 100%;
-			height: 100%;
-			margin: 0px;
-		***REMOVED***
-		body{
-			opacity: 0;
-			transition: 3.0s ease-in-out;
-		***REMOVED***
-		#canvasParent{
-			width: 100%;
-			height: 100%;
-			min-width: 800px;	
-			min-height: 600px;
-			top: 0px;
-			left: 0px;
-			margin: 0px;
-			z-index:-2;
-			position: absolute;
-			overflow: hidden;
-		***REMOVED***
-		#container{
-			display: flex;
-			flex-direction: row;
-			width: 100%;
-			height: 100%;		
-			min-width: 800px;	
-			min-height: 600px;
-			overflow: hidden;
-		***REMOVED***
-		#menu{
-			margin-left: 13%;
-			height: 100%;
-			align-self: flex-end;
-			overflow: hidden;
-			z-index: 1;
-			/*border: 1px solid blue;*/
-		***REMOVED***
-		.menuItem{
-			z-index: 2;
-			height: 25%;
-			max-height: 250px;
-			position: relative;
-		***REMOVED***
-		.menuItem > img{
-			width: auto;
-			height: 100%;
-   			transition: opacity 0.5s ease-in-out;
-   			position: absolute;
-   			z-index: 3;
-   			/*shaking fix*/
-   			-webkit-backface-visibility: hidden;
-			-webkit-transform: translateZ(0) scale(1.0, 1.0);
-		***REMOVED***
-		/*.menuItem > img:hover{
-			background-color: red;
-		***REMOVED****/
-		.menuItem:nth-of-type(1) > img{
-			transform: translate(0%,0%);
-		***REMOVED***
-		.menuItem:nth-of-type(2) > img{
-			transform: translate(50%,-25%);
-		***REMOVED***
-		.menuItem:nth-of-type(3) > img{
-			transform: translate(0%,-50%);
-		***REMOVED***
-		.menuItem:nth-of-type(4) > img{
-			transform: translate(50%,-75%);
-		***REMOVED***
-		.menuItem > img:nth-of-type(2){
-			opacity:0;
-		***REMOVED***
-		.menuItem > img:nth-of-type(2):hover{
-			opacity:1;
-		***REMOVED***
-		#rightPanel{
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			flex-grow: 2;
-			transition: transform 1.5s ease;
-			transform: translateZ(0) translate(0%, 0%);
-			z-index: 2;
-			/*border: 1px solid red;*/
-		***REMOVED***
-		#padLock{
-		position: relative;	
-		left: 50%;
-		width: 33%;
-		max-width: 400px;
-		object-fit: contain;
-		transform: translate(-50%,0%);
-		z-index: -1;
-		filter: invert(100%);
-		***REMOVED***
-		#txtLogo{
-			height: 20%;
-			width: 75%;
-			display: flex;
-			align-self: center;
+	<link rel="stylesheet" href="css/style.css">
 
-		***REMOVED***
-		#logoNoHover{
-			height: 100%;
-			width: 100%;
-			margin: auto;
-			display: block;
-			object-fit: contain;
-		***REMOVED***
-		#unLockLink{			
-			position: absolute;
-			transform: translate(-100%,-100%);
-			opacity: 0;			
-		***REMOVED***
-		#unLockLink:hover{
-			opacity: 1;
-		***REMOVED***
-		#midPanel{
-			z-index: 0;
-			position: absolute;
-			width: 10px;
-			height: 10px;
-			/*border: 1px green solid;*/
-    		overflow: hidden;
-    		/*clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 50%);*/
-		***REMOVED***
-		.midTab{
-			width: 100%;
-			height: 100%;
-			position: absolute !important;
-			transform: translateZ(0) translate(-100%, 0%);
-
-			background: linear-gradient(to right, hsla(0, 0%, 0%, 0.75) 0%, hsla(0, 0%, 0%, 0.73) 26.6%, hsla(0, 0%, 0%, 0.675) 46.9%, hsla(0, 0%, 0%, 0.594) 61.9%, hsla(0, 0%, 0%, 0.495) 72.6%, hsla(0, 0%, 0%, 0.386) 80%, hsla(0, 0%, 0%, 0.277) 85%, hsla(0, 0%, 0%, 0.175) 88.5%, hsla(0, 0%, 0%, 0.09) 91.5%, hsla(0, 0%, 0%, 0.028) 95%, hsla(0, 0%, 0%, 0) 100%);
-
-			transition: 1.5s ease-in-out;
-			overflow: scroll;
-		***REMOVED***
-		.midTabTxt{
-			color:white;
-			display: block;
-			padding-right: 15%;
-			font-family: "DINPro";
-		***REMOVED***
-		canvas{
-			z-index: -2 !important;
-		***REMOVED***
-
-	</style>
-<!-- 	<script src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script> -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
 	<script type="text/javascript" src="js/p5.collide2d.js"></script>
 	<script type="text/javascript" src="js/scatter.js"></script>
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
-<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.js"></script>
 
 </head>
 
@@ -218,9 +63,24 @@
 		<div data-simplebar class="midTab">
 			<span class="midTabTxt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
 		</div>	
-		<div data-simplebar class="midTab">
+		<div data-simplebar class="midTab" id="what2buy">
 			<ul>
-				<li></li>
+				<li>
+					<img src="imgs/products/test.png" class="product">
+					<span class="midTabTxt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+				</li>
+				<li>
+					<img src="imgs/products/test.png" class="product">
+					<span></span>
+				</li>
+				<li>
+					<img src="imgs/products/test.png" class="product">
+					<span></span>
+				</li>
+				<li>
+					<img src="imgs/products/test.png" class="product">
+					<span></span>
+				</li>
 			</ul>
 		</div>	
 		<div data-simplebar class="midTab">
@@ -230,188 +90,7 @@
 </div>
 <div id="canvasParent"></div>
 
-<script type="text/javascript">
-	var blockButton = document.getElementsByClassName("button");
-	var menuTop = document.getElementsByClassName("menuItem")[0];
-	var menu = {
-		height : 0, 
-		width : 0***REMOVED***;
-	var rPanel = document.getElementById("rightPanel");
-	var unLock = document.getElementById("unLockLink");
-
-	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	// ~*SCALING*~
-
-	window.onload = function(){
-		menu.height = blockButton[0].height * 3.25;
-		menu.width = blockButton[0].width * 1.5;
-		menuTop.style.marginTop = (document.body.scrollHeight - menu.height)/2 + "px";
-		menuTop.parentElement.style.minWidth = menu.width + "px";
-		// rightPanel
-		rPanel.children[0].style.maxHeight = (menu.height*0.66) + "px";
-		rPanel.children[1].style.maxHeight = (menu.height*0.33) + "px";
-		rPanel.children[0].style.minWidth = menu.width + "px";
-
-		mapUnLock();
-		midPanel.alignSelf();
-
-		document.body.style.opacity = 1;
-	***REMOVED*** 
-	// ~*RESIZE WINDOW*~
-	window.onresize = function(){
-		menu.height = blockButton[0].height * 3.25;
-		menu.width = blockButton[0].width * 1.5;
-
-		rPanel.children[1].style.maxWidth=(rPanel.offsetWidth*0.75)+"px";
-
-		if(window.innerHeight>600){			
-			menuTop.style.marginTop = (document.body.scrollHeight - menu.height)/2 + "px";
-			menuTop.parentElement.style.minWidth = menu.width + "px" 	
-			// rightPanel
-			rPanel.children[0].style.maxHeight = (menu.height*0.66) + "px";
-			rPanel.children[1].style.maxHeight=(menu.height*0.33)+"px";
-			rPanel.children[0].style.minWidth = menu.width + "px";
-		***REMOVED***
-		mapUnLock();
-		midPanel.alignSelf();
-	***REMOVED***
-
-	// ~*position unlock Link*~
-	function mapUnLock(){
-		var oAspectRatio = rPanel.children[1].children[0].naturalHeight/rPanel.children[1].children[0].naturalWidth;
-		var cAspectRatio = rPanel.children[1].children[0].offsetHeight/rPanel.children[1].children[0].offsetWidth;
-		var heightDiff = (rPanel.children[1].children[0].offsetHeight - (rPanel.children[1].children[0].offsetWidth *oAspectRatio))/2;
-		var widthDiff = (rPanel.children[1].children[0].offsetWidth - (rPanel.children[1].children[0].offsetHeight *(1/oAspectRatio)))/2;
-		var hSizeRatio = rPanel.children[1].children[0].height / rPanel.children[1].children[0].naturalHeight;
-		var wSizeRatio = rPanel.children[1].children[0].width / rPanel.children[1].children[0].naturalWidth;
-		if (cAspectRatio>oAspectRatio){
-			unLock.style.top = ((rPanel.children[1].children[0].offsetTop + rPanel.children[1].children[0].offsetHeight)-heightDiff)+"px";
-			unLock.style.left = rPanel.children[1].children[0].offsetLeft + rPanel.children[1].children[0].offsetWidth + "px";	
-			unLock.style.width = (unLock.naturalWidth * wSizeRatio) + "px";
-			unLock.style.height = "auto";
-		***REMOVED*** else if(cAspectRatio<oAspectRatio){
-			unLock.style.top = (rPanel.children[1].children[0].offsetTop + rPanel.children[1].children[0].offsetHeight)+"px";
-			unLock.style.left = ((rPanel.children[1].children[0].offsetLeft + rPanel.children[1].children[0].offsetWidth)-widthDiff) + "px";
-			unLock.style.height = (unLock.naturalHeight * hSizeRatio) + "px";
-			unLock.style.width = "auto";
-		***REMOVED***
-	***REMOVED***
-
-	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	// ~*MIDDLE PANEL*~
-
-	// is this a problem for firefox ? 
-	var midPanel = document.getElementById('midPanel');
-	midPanel.tabs = document.getElementsByClassName("midTab");
-	midPanel.tabTxt = document.getElementsByClassName("midTabTxt");
-	midPanel.alignSelf = function(){
-		this.style.left = (menuTop.parentElement.offsetLeft + (blockButton[0].width/2)) + 'px';
-		this.style.marginTop = menuTop.style.marginTop;
-
-		this.style.height = menu.height + "px";
-		this.style.width = rPanel.offsetWidth + "px";
-		this.style.minWidth = (rPanel.children[1].children[0].offsetWidth + (rPanel.children[1].children[0].offsetLeft - midPanel.offsetLeft)) + "px";
-		// ~~~~~~~~~~~~. clipping. ~~~~~~~~~~~~~~~~~. 
-		var clipHorizontal = (100 * ((blockButton[0].width * 0.5) / this.offsetWidth)) + "%";
-		var clipVertical = (100 * ((blockButton[0].height * 0.25) / this.offsetHeight)) + "%";
-		this.style.clipPath = "polygon(0% 0%, 100% 0%, 100% 100%, " + clipHorizontal + " 100%, 0% " + clipVertical + ")"; 
-		// ~~~~~~~~~~~~. txt. ~~~~~~~~~~~~~~~~~. 
-		for (var i = 0; i < this.tabTxt.length; i++) {
-			this.tabTxt[i].style.paddingLeft = blockButton[0].width + 33 + "px";
-			this.tabTxt[i].style.paddingTop = blockButton[0].height * 0.25 + "px";
-			this.tabTxt[i].style.paddingBottom = blockButton[0].height * 0.25 + "px";
-		***REMOVED***
-	***REMOVED***
-
-	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	// ~*BUTTONS*~
-	
-	function buttonClick(index){
-		blockButton[index].addEventListener('click', function(event){
-			event.stopPropagation();
-			console.log("u clicked button number " + (index-1)/2);
-			if(blockButton[index].status == 0){
-				for (j = 1; j < blockButton.length; j+=2){
-					blockButton[j].status = 0;
-					blockButton[j].style.opacity = 0;
-				***REMOVED***
-				blockButton[index].style.opacity = 1;
-				blockButton[index].status = 1;
-
-				rPanel.style.transform = "translate(100%, 0%)";				
-			***REMOVED***else{
-				blockButton[index].style.opacity = 0;
-				blockButton[index].status = 0;
-				rPanel.style.transform = "translate(0%, 0%)";
-			***REMOVED***
-
-
-			// needs shorter syntax, this is the most convoluted way of doing this 
-			if (midPanel.tabs[(index-1)/2].status == 0) {
-				for (i = 0; i < midPanel.tabs.length; i++) {
-					midPanel.tabs[i].status = 0;
-				***REMOVED***
-				midPanel.tabs[(index-1)/2].status = 1;
-				for (i = 0; i < midPanel.tabs.length; i++) {
-					if(midPanel.tabs[i].status == 0){midPanel.tabs[i].style.transform = "translate(-100%, 0%)"***REMOVED***
-				***REMOVED***
-				midPanel.tabs[(index-1)/2].style.transform = "translate(0%, 0%)"	
-			***REMOVED***else{
-				midPanel.tabs[(index-1)/2].style.transform="translate(-100%, 0%)";
-				midPanel.tabs[(index-1)/2].status = 0;
-			***REMOVED***			
-		***REMOVED***)
-	***REMOVED***
-
-	function buttonHover(index){
-		blockButton[index].addEventListener("mouseover", function(){
-			for (j = 1; j < blockButton.length; j+=2){
-				blockButton[j].style.opacity = 0;
-			***REMOVED***
-			blockButton[index].style.opacity = 1;
-		***REMOVED***);
-		blockButton[index].addEventListener("mouseout", function(){
-			for (j = 1; j < blockButton.length; j+=2){
-				if(blockButton[j].status==1){
-					blockButton[j].style.opacity = 1;
-				***REMOVED***else{blockButton[j].style.opacity = 0***REMOVED***				
-			***REMOVED***
-		***REMOVED***)
-	***REMOVED***
-
-	for(i = 0; i < blockButton.length; i++){
-		blockButton[i].status = 0;
-		if(i<midPanel.tabs.length){
-			midPanel.tabs[i].status = 0;
-			midPanel.tabs[i].addEventListener('click', function(event){
-				event.stopPropagation();
-			***REMOVED***)	
-		***REMOVED*** 
-		buttonClick(i);
-		buttonHover(i);	
-	***REMOVED*** 
-
-
-	document.body.addEventListener("click", function(){
-
-		for (i = 0; i < midPanel.tabs.length; i++) {
-					midPanel.tabs[i].status = 0;
-					midPanel.tabs[i].style.transform = "translate(-100%, 0%)"					
-				***REMOVED***
-		for (j = 1; j < blockButton.length; j+=2){
-					blockButton[j].status = 0;
-					blockButton[j].style.opacity = 0;
-				***REMOVED***
-		rPanel.style.transform = "translate(0%, 0%)"
-	***REMOVED***)
-
-
-// NOTES 2 SELF
-// ~~ stop selecting elements by .children[]
-// ~~ select by document.querySelectorAll()
-// ~~ check cross-browser performance step-by-step
-
-</script>
+<script type="text/javascript" src="js/main.js"></script>
 
 </body>
 </html>
