@@ -73,14 +73,14 @@
 	// is this a problem for firefox ? 
 	var midPanel = document.getElementById('midPanel');
 	midPanel.tabs = document.getElementsByClassName("midTab");
-	midPanel.tabTxt = document.getElementsByClassName("midTabTxt");
+	midPanel.tabTxt = document.querySelectorAll("#whatItIs .midTabTxt");
 	midPanel.alignSelf = function(){
 		this.style.left = (menuTop.parentElement.offsetLeft + (blockButton[0].width/2)) + 'px';
 		this.style.marginTop = menuTop.style.marginTop;
 
 		this.style.height = menu.height + "px";
 		this.style.width = rPanel.offsetWidth + "px";
-		this.style.minWidth = (rPanel.children[1].children[0].offsetWidth + (rPanel.children[1].children[0].offsetLeft - midPanel.offsetLeft)) + "px";
+		// this.style.minWidth = (rPanel.children[1].children[0].offsetWidth + (rPanel.children[1].children[0].offsetLeft - midPanel.offsetLeft)) + "px";
 		// ~~~~~~~~~~~~. clipping. ~~~~~~~~~~~~~~~~~. 
 		var clipHorizontal = (100 * ((blockButton[0].width * 0.5) / this.offsetWidth)) + "%";
 		var clipVertical = (100 * ((blockButton[0].height * 0.25) / this.offsetHeight)) + "%";
@@ -180,11 +180,30 @@
 
 var what2buy = document.querySelector("#what2buy .simplebar-content");
 what2buy.liNodes = document.querySelectorAll("#what2buy li");
+what2buy.hexFrame = document.querySelectorAll("div.hexFrame");
+what2buy.productImg = document.querySelectorAll("img.product");
+what2buy.productDiv = document.querySelectorAll("div.product");
+what2buy.productTxt = document.querySelectorAll("div.product > span");
+what2buy.whRatio = what2buy.productImg[0].naturalWidth/what2buy.productImg[0].naturalHeight;
 what2buy.layout = function(){
-	var h = midPanel.offsetHeight/3;
+	var h = midPanel.offsetHeight;
+	var w = midPanel.offsetWidth;
+	var txtPadding = parseInt(window.getComputedStyle(this.productTxt[0], null).getPropertyValue("padding-left")) * 2;
 	for (i = 0; i < this.liNodes.length; i++) {
 		this.liNodes[i].style.height = h + "px";
 		this.liNodes[i].style.marginLeft = blockButton[0].width + "px";
+		
+		this.hexFrame[i].style.maxHeight =((this.liNodes[i].offsetWidth * 0.9) *(1/this.whRatio)) + 'px';
+		this.hexFrame[i].style.width = this.hexFrame[i].offsetHeight* this.whRatio + "px";
+
+		// this.productImg[i].style.width = this.hexFrame[i].style.offsetWidth + 'px';
+
+		// this.productTxt[i].style.width = (this.productImg[0].offsetWidth - txtPadding) + "px";
+
+		// calculate maxH 
+		// maxH = maxW * naturalH / naturalW 
+		// maxW = (w-btnMargin)*0.8
+
 	***REMOVED***
 ***REMOVED***
 
