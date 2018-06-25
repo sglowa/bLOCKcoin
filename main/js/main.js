@@ -12,7 +12,7 @@
 	window.onload = function(){
 		menu.height = blockButton[0].height * 3.25;
 		menu.width = blockButton[0].width * 1.5;
-		menuTop.style.marginTop = (document.body.scrollHeight - menu.height)/2 + "px";
+		menuTop.style.marginTop = (document.body.scrollHeight - menu.height)/2 -50 + "px";
 		menuTop.parentElement.style.minWidth = menu.width + "px";
 		// rightPanel
 		rPanel.children[0].style.maxHeight = (menu.height*0.66) + "px";
@@ -23,6 +23,7 @@
 		midPanel.alignSelf();
 
 		what2buy.layout();
+		whoWeR.layout();
 
 		document.body.style.opacity = 1;
 	***REMOVED*** 
@@ -34,7 +35,7 @@
 		rPanel.children[1].style.maxWidth=(rPanel.offsetWidth*0.75)+"px";
 
 		if(window.innerHeight>600){			
-			menuTop.style.marginTop = (document.body.scrollHeight - menu.height)/2 + "px";
+			menuTop.style.marginTop = (document.body.scrollHeight - menu.height)/2 -50 + "px";
 			menuTop.parentElement.style.minWidth = menu.width + "px" 	
 			// rightPanel
 			rPanel.children[0].style.maxHeight = (menu.height*0.66) + "px";
@@ -44,6 +45,8 @@
 		mapUnLock();
 		midPanel.alignSelf();
 		what2buy.layout();
+		whoWeR.layout();
+		what2buy.alignLastItem();
 	***REMOVED***
 
 	// ~*position unlock Link*~
@@ -73,7 +76,7 @@
 	// is this a problem for firefox ? 
 	var midPanel = document.getElementById('midPanel');
 	midPanel.tabs = document.getElementsByClassName("midTab");
-	midPanel.tabTxt = document.querySelectorAll("#whatItIs .midTabTxt");
+	midPanel.tabTxt = document.querySelectorAll("#whatItIs .midTabTxt, #how2Buy .midTabTxt");
 	midPanel.alignSelf = function(){
 		this.style.left = (menuTop.parentElement.offsetLeft + (blockButton[0].width/2)) + 'px';
 		this.style.marginTop = menuTop.style.marginTop;
@@ -178,13 +181,16 @@
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // ~*What 2 Buy*~
 
-var what2buy = document.querySelector("#what2buy .simplebar-content");
+var what2buy = document.querySelector("#what2buy");
 what2buy.liNodes = document.querySelectorAll("#what2buy li");
-what2buy.hexFrame = document.querySelectorAll("div.hexFrame");
+what2buy.hexFrame = document.querySelectorAll("#what2buy .hexFrame");
 what2buy.productImg = document.querySelectorAll("img.product");
 what2buy.productDiv = document.querySelectorAll("div.product");
-what2buy.productTxt = document.querySelectorAll("div.product > span");
+what2buy.productTxt = document.querySelectorAll("div.product > .midTabTxt");
+what2buy.arrowUp = document.querySelectorAll(".arrow.up");
+what2buy.arrowDown = document.querySelectorAll(".arrow.down");
 what2buy.whRatio = what2buy.productImg[0].naturalWidth/what2buy.productImg[0].naturalHeight;
+what2buy.currentItem = 0;
 what2buy.layout = function(){
 	var h = midPanel.offsetHeight;
 	var w = midPanel.offsetWidth;
@@ -194,8 +200,7 @@ what2buy.layout = function(){
 		this.liNodes[i].style.marginLeft = blockButton[0].width + "px";
 		
 		this.hexFrame[i].style.maxHeight =((this.liNodes[i].offsetWidth * 0.9) *(1/this.whRatio)) + 'px';
-		this.hexFrame[i].style.width = this.hexFrame[i].offsetHeight* this.whRatio + "px";
-
+		this.hexFrame[i].style.width = this.hexFrame[i].offsetHeight * this.whRatio + "px";	
 		// this.productImg[i].style.width = this.hexFrame[i].style.offsetWidth + 'px';
 
 		// this.productTxt[i].style.width = (this.productImg[0].offsetWidth - txtPadding) + "px";
@@ -203,9 +208,85 @@ what2buy.layout = function(){
 		// calculate maxH 
 		// maxH = maxW * naturalH / naturalW 
 		// maxW = (w-btnMargin)*0.8
-
 	***REMOVED***
 ***REMOVED***
+what2buy.alignLastItem = function(){
+	var offset =what2buy.offsetHeight*this.currentItem;
+	this.scrollTo(null, offset);
+	console.log('scrolling');
+***REMOVED***
+
+for (i = 0; i < what2buy.hexFrame.length; i++) {
+	what2buy.hexFrame[i].addEventListener('click', function(event){
+		var element = event.currentTarget;
+		switch(element.children[2].style.transform){
+			case "":
+				element.children[2].style.transform = element.children[1].style.transform	= "translateX(-200%)";
+				break;
+			case "translateX(-100%)":
+				element.children[2].style.transform = element.children[1].style.transform	= "translateX(-200%)";
+				break;
+			case "translateX(-200%)":
+				element.children[2].style.transform = element.children[1].style.transform	= "translateX(-100%)";
+				break;
+			default:
+				console.log("something wrong: check cssTransform on .product");
+		***REMOVED***
+		
+	***REMOVED***)
+***REMOVED***
+what2buy.arrowUp[0].classList.add('hidden')
+for (var i = 1; i < what2buy.arrowUp.length; i++) {
+	what2buy.arrowUp[i].addEventListener('click', function(event){
+		what2buy.currentItem --;
+		what2buy.scrollBy({
+			top: -midPanel.offsetHeight,
+			left: 0,
+			behavior: "smooth"
+		***REMOVED***)
+		console.log(what2buy.currentItem);
+		// what2buy.currentItem = (i-1);
+	***REMOVED***)
+***REMOVED***
+
+what2buy.arrowDown[what2buy.arrowDown.length-1].classList.add('hidden')
+for (var i = 0; i < what2buy.arrowDown.length-1; i++) {	
+	what2buy.arrowDown[i].addEventListener('click', function(event){
+		what2buy.currentItem ++;
+		what2buy.scrollBy({
+			top: midPanel.offsetHeight,
+			left: 0,
+			behavior: "smooth"
+		***REMOVED***);
+		// what2buy.currentItem = (i+1);
+		console.log(what2buy.currentItem);
+	***REMOVED***)
+	// if (i == (what2buy.arrowDown.length - 2)) {
+	// 	what2buy.arrowDown[i].addEventListener('click', function(event){what2buy.lastItem = true***REMOVED***);
+	// ***REMOVED***else{
+	// 	what2buy.arrowDown[i].addEventListener('click', function(event){what2buy.lastItem = false***REMOVED***);
+	// ***REMOVED***
+***REMOVED***
+
+
+var whoWeR = document.querySelector("#whoWeR");
+whoWeR.container = document.querySelectorAll("#whoWeR .bioContainer");
+whoWeR.hexFrame = document.querySelectorAll("#whoWeR .hexFrame");
+whoWeR.panel = document.querySelector("#whoWeR .bioPanel");
+whoWeR.layout = function(){
+
+	var h = midPanel.offsetHeight;
+	var aspect = blockButton[0].offsetWidth/blockButton[0].offsetHeight;
+	this.panel.style.height = h - 30 + 'px';
+	this.panel.style.marginLeft = blockButton[0].width + "px";
+	for (var i = 0; i < this.hexFrame.length; i++) {
+		this.hexFrame[i].style.width =  this.hexFrame[i].offsetHeight * (aspect/1) + 'px';
+		if ((i+1)%2){
+			this.container[i].style.flexFlow = "row-reverse";
+		***REMOVED***
+	***REMOVED***
+***REMOVED*** 
+
 
 
 

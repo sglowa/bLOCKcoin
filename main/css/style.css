@@ -5,6 +5,13 @@
 	url("../fonts/DINPro-Light.woff") format("woff"),
 	url("../fonts/DINPro-Light.otf") format("opentype")
 	***REMOVED***
+@font-face {
+	font-family: "DINProBold";
+	src: url("../fonts/DINPro-Medium.ttf");
+	src: 
+	url("../fonts/DINPro-Medium.woff") format("woff"),
+	url("../fonts/DINPro-Medium.otf") format("opentype")
+	***REMOVED***
 html, body{
 	width: 100%;
 	height: 100%;
@@ -27,6 +34,7 @@ body{
 	overflow: hidden;
 ***REMOVED***
 #container{
+	position: relative;
 	display: flex;
 	flex-direction: row;
 	width: 100%;
@@ -36,7 +44,7 @@ body{
 	overflow: hidden;
 ***REMOVED***
 #menu{
-	margin-left: 13%;
+	margin-left: 7%;
 	height: 100%;
 	align-self: flex-end;
 	overflow: hidden;
@@ -81,6 +89,7 @@ body{
 	opacity:1;
 ***REMOVED***
 #rightPanel{
+	margin-top: -80px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -121,6 +130,7 @@ filter: invert(100%);
 ***REMOVED***
 #unLockLink:hover{
 	opacity: 1;
+	cursor:pointer;
 ***REMOVED***
 #midPanel{
 	z-index: 0;
@@ -142,9 +152,15 @@ filter: invert(100%);
 	display: block;	
 	font-family: "DINPro";
 ***REMOVED***
-#whatItIs .midTabTxt{
+#whatItIs .midTabTxt, #how2Buy .midTabTxt{
 	padding-right: 15%;
 	color:white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+***REMOVED***
+#what2buy{
+	overflow: hidden;
 ***REMOVED***
 
 ul {
@@ -155,10 +171,11 @@ ul {
 li {
 	display: flex;
 	justify-content: center;
+	flex-flow: column;
 	/*border: 1px solid cyan;*/
 ***REMOVED***
 
-div.hexFrame{
+#what2buy .hexFrame{
 	/*border: solid 1px red;*/
 	height: 80%;
 	align-self: center;
@@ -166,9 +183,15 @@ div.hexFrame{
 	flex-flow: row;
 	overflow: hidden;
 	clip-path: polygon(0.66% 25%, 50% 0.66%, 99.33% 25%, 99.33% 75%, 50% 99.33%, 0.66% 75%);
+	transform: scale(1.033);
+	transition: transform 0.33s ease-in-out;
+	backface-visibility: hidden;
+	background-color: white;
+
 ***REMOVED***
-div.hexFrame:hover{
-	pointer:shaking;
+#what2buy .hexFrame:hover{
+	transform: scale(1.066);
+	cursor:pointer;
 ***REMOVED***
 
 div.hexBorder{
@@ -183,27 +206,168 @@ div.hexBorder{
 
 img.product{
 	height: 100%;
-	background-color: white;
 ***REMOVED***
 div.product{	
-	display: flex;
-	background-color: white;
+	display: flex;	
+	justify-content: center;
 ***REMOVED***
 img.product, div.product{
 	flex-shrink: 0;
 	width: 100%;
 	transform: translateX(-100%);
-	transition: 3s ease-in-out;
+	transition: transform 1s ease-in-out;
 ***REMOVED***
 
 li .midTabTxt{
 	padding-left: 30px;
 	padding-right: 30px;
-	text-align: justify;
+	display: flex;
+	text-align: center;
+	/*text-align: justify;
 	align-self: center;
-	color:black;
+	flex-flow: column;
+	align-items: center;*/
+	flex-direction: column;
+	color: black;
+	width: 100%;
+	height: 25%;
+	align-self: center;
 ***REMOVED***
 
+li .midTabTxt .box{
+	flex:1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+***REMOVED***
+
+li .midTabTxt .line{
+	width: 80%;
+	height: 3px;
+	background-color: black;
+	box-shadow: 0px 3.3px 7px 3px #949494;
+***REMOVED***
+
+.box.price p {
+	font-size: 40px;
+	margin: 10px auto 10px auto  ;
+	font-family: "DINProBold";
+***REMOVED***
+
+.box.info p{
+	margin: 10px auto auto auto;
+***REMOVED***
+
+.arrow{
+	display: block;
+	align-self: center;
+	height: 8%;	
+	width: auto;
+***REMOVED***
+.arrow > img{
+	height: 100%;
+	width: auto;
+	transition: transform 0.33s ease-in-out;
+	transform: scale(1.0);
+***REMOVED***
+.arrow:not(.hidden) > img:hover{
+	transform: scale(1.1);
+	cursor:pointer;
+***REMOVED***
+.arrow.up{
+	margin-top: 20px
+***REMOVED***
+.arrow.down{
+	margin-bottom: 20px
+***REMOVED***
+.arrow.hidden{
+	opacity: 0;
+***REMOVED***
+#how2Buy h1{
+	-webkit-margin-after:0.11em;
+***REMOVED***
+#how2Buy h2{
+	text-align: center;
+	-webkit-margin-after:0.5em;
+	-webkit-margin-before:0.5em;
+***REMOVED***
+#how2Buy .line{
+	height: 2px;
+	width: 100%;
+	background-color: white;	
+	margin: -6px;
+***REMOVED***
+
+#logosContainer{
+	/*border: solid 1px red;*/
+	position: absolute;
+	width: 99%;
+   	display: flex;
+    align-self: flex-end;
+    height: 100px;
+    left: 50%;
+    transform: translate(-50%);
+    align-items: flex-start;
+    justify-content: space-around;
+    z-index: 5;
+***REMOVED***
+#logosContainer a{
+	height: 100%;
+***REMOVED***
+#logosContainer img{
+   	/*max-width: 20%;*/
+   	max-width: 90%;
+    height: 80%;
+    object-fit: contain;
+    z-index: 6;
+***REMOVED***
+#logosContainer img:hover{
+	transform: scale(1.033);
+	cursor:pointer;
+***REMOVED***
+#whoWeR .bioPanel{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 15px 15% 15px 0px;
+***REMOVED***
+#whoWeR .bioContainer{
+	display: flex;
+	height: 28%;
+	padding-left: 5%;
+	padding-right: 5%;
+	align-items: center;
+	overflow: hidden;
+***REMOVED***
+#whoWeR .hexFrame{
+	height: 100%;
+	align-self: center;
+	display: flex;
+	flex-flow: row;
+	flex-shrink: 0;
+	overflow: hidden;
+	clip-path: polygon(0.66% 25%, 50% 0.66%, 99.33% 25%, 99.33% 75%, 50% 99.33%, 0.66% 75%);
+	transform: scale(1.033);
+	background-color: white;
+***REMOVED***
+#whoWeR img{
+	height: 100%;
+	transform: translateX(-100%) scale(0.95);
+***REMOVED***
+#whoWeR .midTabTxt{
+	color :white;
+    text-align: justify;
+    font-size: small;
+    height: 100%;
+    overflow: scroll;
+***REMOVED***
+#whoWeR .margin{
+	width: 15px;
+	flex-shrink: 0;
+***REMOVED***
+#whoWeR .name{
+	font-family: "DINProBold";
+***REMOVED***
 canvas{
 	z-index: -2 !important;
 ***REMOVED***
