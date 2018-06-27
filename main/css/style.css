@@ -159,6 +159,12 @@ filter: invert(100%);
 	flex-direction: column;
 	align-items: center;
 ***REMOVED***
+#whatItIs .scrip{
+	width: 80%;
+***REMOVED***
+#whatItIs img{
+	width: 100%;	
+***REMOVED***
 #what2buy{
 	overflow: hidden;
 ***REMOVED***
@@ -358,12 +364,19 @@ li .midTabTxt .line{
 	color :white;
     text-align: justify;
     font-size: small;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 100%;
-    overflow: scroll;
+    
 ***REMOVED***
 #whoWeR .margin{
 	width: 15px;
 	flex-shrink: 0;
+***REMOVED***
+#whoWeR .jobTitle{
+	font-size: medium;
+	margin-bottom: 5px;
 ***REMOVED***
 #whoWeR .name{
 	font-family: "DINProBold";

@@ -21,7 +21,8 @@
 
 		mapUnLock();
 		midPanel.alignSelf();
-
+		
+		what2buy.whRatio = what2buy.productImg[0].naturalWidth/what2buy.productImg[0].naturalHeight;
 		what2buy.layout();
 		whoWeR.layout();
 
@@ -189,7 +190,6 @@ what2buy.productDiv = document.querySelectorAll("div.product");
 what2buy.productTxt = document.querySelectorAll("div.product > .midTabTxt");
 what2buy.arrowUp = document.querySelectorAll(".arrow.up");
 what2buy.arrowDown = document.querySelectorAll(".arrow.down");
-what2buy.whRatio = what2buy.productImg[0].naturalWidth/what2buy.productImg[0].naturalHeight;
 what2buy.currentItem = 0;
 what2buy.layout = function(){
 	var h = midPanel.offsetHeight;
@@ -199,7 +199,7 @@ what2buy.layout = function(){
 		this.liNodes[i].style.height = h + "px";
 		this.liNodes[i].style.marginLeft = blockButton[0].width + "px";
 		
-		this.hexFrame[i].style.maxHeight =((this.liNodes[i].offsetWidth * 0.9) *(1/this.whRatio)) + 'px';
+		this.hexFrame[i].style.maxHeight =((h * 0.9) *(1/this.whRatio)) + 'px';
 		this.hexFrame[i].style.width = this.hexFrame[i].offsetHeight * this.whRatio + "px";	
 		// this.productImg[i].style.width = this.hexFrame[i].style.offsetWidth + 'px';
 
