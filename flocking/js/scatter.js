@@ -1,7 +1,7 @@
 function windowResized() {
   //console.log('resized');
   resizeCanvas(windowWidth, windowHeight);
-***REMOVED***
+}
 
 var cubes = [];
 var numCubes = 60;
@@ -18,20 +18,20 @@ function setup(){
   	for(i=0;i<numCubes;i++){
 		c = new cubeObj(random(30,60), i ) // generate a random sized circObj and store it's ID for later
 		cubes.push(c); //add it to the array.
-	***REMOVED***
-***REMOVED***
+	}
+}
 
 function draw(){
 	background(255);
 
 	for(j=0;j<numCubes;j++){
 	cubes[j].place(cubes); //try to place a cubeObj on the screen
-	***REMOVED***
+	}
 
 	for(k=0;k<numCubes;k++){ // display the objects
 		cubes[k].disp();
-	***REMOVED***
-***REMOVED***
+	}
+}
 
 function cubeObj(s, id){
 	this.x = random(width);
@@ -53,23 +53,23 @@ function cubeObj(s, id){
 					//try again:
 					this.x = random(width)
 					this.y = random(height)
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
-	***REMOVED***
+				}
+			}
+		}
+	}
 
 	this.disp = function(){
 		
 		if(this.x > width){
 		this.x = (-30)
-		***REMOVED***else{
+		}else{
 		this.x += (this.w/100);
-		***REMOVED***;
+		};
 		image(img,this.x,this.y,this.w,this.h);
 
-	***REMOVED***
+	}
 
-***REMOVED***
+}
 
 
 
@@ -100,16 +100,16 @@ function cubeObj(s, id){
 // 						//try again:
 // 						this.x = random(width)
 // 						this.y = random(height)
-// 					***REMOVED***
-// 				***REMOVED***
-// 			***REMOVED***
-// 	***REMOVED***
+// 					}
+// 				}
+// 			}
+// 	}
 
 // 	this.disp = function(){
 // 		noStroke();
 // 		fill(this.color);
 // 		ellipse(this.x,this.y,this.d,this.d);
 
-// 	***REMOVED***
+// 	}
 
-// ***REMOVED***
+// }

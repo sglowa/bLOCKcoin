@@ -2,7 +2,7 @@
 	var menuTop = document.getElementsByClassName("menuItem")[0];
 	var menu = {
 		height : 0, 
-		width : 0***REMOVED***;
+		width : 0};
 	var rPanel = document.getElementById("rightPanel");
 	var unLock = document.getElementById("unLockLink");
 
@@ -27,7 +27,7 @@
 		whoWeR.layout();
 
 		document.body.style.opacity = 1;
-	***REMOVED*** 
+	} 
 	// ~*RESIZE WINDOW*~
 	window.onresize = function(){
 		menu.height = blockButton[0].height * 3.25;
@@ -42,13 +42,13 @@
 			rPanel.children[0].style.maxHeight = (menu.height*0.66) + "px";
 			rPanel.children[1].style.maxHeight=(menu.height*0.33)+"px";
 			rPanel.children[0].style.minWidth = menu.width + "px";
-		***REMOVED***
+		}
 		mapUnLock();
 		midPanel.alignSelf();
 		what2buy.layout();
 		whoWeR.layout();
 		what2buy.alignLastItem();
-	***REMOVED***
+	}
 
 	// ~*position unlock Link*~
 	function mapUnLock(){
@@ -63,13 +63,13 @@
 			unLock.style.left = rPanel.children[1].children[0].offsetLeft + rPanel.children[1].children[0].offsetWidth + "px";	
 			unLock.style.width = (unLock.naturalWidth * wSizeRatio) + "px";
 			unLock.style.height = "auto";
-		***REMOVED*** else if(cAspectRatio<oAspectRatio){
+		} else if(cAspectRatio<oAspectRatio){
 			unLock.style.top = (rPanel.children[1].children[0].offsetTop + rPanel.children[1].children[0].offsetHeight)+"px";
 			unLock.style.left = ((rPanel.children[1].children[0].offsetLeft + rPanel.children[1].children[0].offsetWidth)-widthDiff) + "px";
 			unLock.style.height = (unLock.naturalHeight * hSizeRatio) + "px";
 			unLock.style.width = "auto";
-		***REMOVED***
-	***REMOVED***
+		}
+	}
 
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	// ~*MIDDLE PANEL*~
@@ -94,8 +94,8 @@
 			this.tabTxt[i].style.paddingLeft = blockButton[0].width + 33 + "px";
 			this.tabTxt[i].style.paddingTop = blockButton[0].height * 0.25 + "px";
 			this.tabTxt[i].style.paddingBottom = blockButton[0].height * 0.25 + "px";
-		***REMOVED***
-	***REMOVED***
+		}
+	}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // ~*BUTTONS*~
@@ -108,50 +108,50 @@
 				for (j = 1; j < blockButton.length; j+=2){
 					blockButton[j].status = 0;
 					blockButton[j].style.opacity = 0;
-				***REMOVED***
+				}
 				blockButton[index].style.opacity = 1;
 				blockButton[index].status = 1;
 
 				rPanel.style.transform = "translate(100%, 0%)";				
-			***REMOVED***else{
+			}else{
 				blockButton[index].style.opacity = 0;
 				blockButton[index].status = 0;
 				rPanel.style.transform = "translate(0%, 0%)";
-			***REMOVED***
+			}
 
 
 			// needs shorter syntax, this is the most convoluted way of doing this 
 			if (midPanel.tabs[(index-1)/2].status == 0) {
 				for (i = 0; i < midPanel.tabs.length; i++) {
 					midPanel.tabs[i].status = 0;
-				***REMOVED***
+				}
 				midPanel.tabs[(index-1)/2].status = 1;
 				for (i = 0; i < midPanel.tabs.length; i++) {
-					if(midPanel.tabs[i].status == 0){midPanel.tabs[i].style.transform = "translate(-100%, 0%)"***REMOVED***
-				***REMOVED***
+					if(midPanel.tabs[i].status == 0){midPanel.tabs[i].style.transform = "translate(-100%, 0%)"}
+				}
 				midPanel.tabs[(index-1)/2].style.transform = "translate(0%, 0%)"	
-			***REMOVED***else{
+			}else{
 				midPanel.tabs[(index-1)/2].style.transform="translate(-100%, 0%)";
 				midPanel.tabs[(index-1)/2].status = 0;
-			***REMOVED***			
-		***REMOVED***)
-	***REMOVED***
+			}			
+		})
+	}
 
 	function buttonHover(index){
 		blockButton[index].addEventListener("mouseover", function(){
 			for (j = 1; j < blockButton.length; j+=2){
 				blockButton[j].style.opacity = 0;
-			***REMOVED***
+			}
 			blockButton[index].style.opacity = 1;
-		***REMOVED***);
+		});
 		blockButton[index].addEventListener("mouseout", function(){
 			for (j = 1; j < blockButton.length; j+=2){
 				if(blockButton[j].status==1){
 					blockButton[j].style.opacity = 1;
-				***REMOVED***else{blockButton[j].style.opacity = 0***REMOVED***				
-			***REMOVED***
-		***REMOVED***)
-	***REMOVED***
+				}else{blockButton[j].style.opacity = 0}				
+			}
+		})
+	}
 
 	for(i = 0; i < blockButton.length; i++){
 		blockButton[i].status = 0;
@@ -159,11 +159,11 @@
 			midPanel.tabs[i].status = 0;
 			midPanel.tabs[i].addEventListener('click', function(event){
 				event.stopPropagation();
-			***REMOVED***)	
-		***REMOVED*** 
+			})	
+		} 
 		buttonClick(i);
 		buttonHover(i);	
-	***REMOVED*** 
+	} 
 
 
 	document.body.addEventListener("click", function(){
@@ -171,13 +171,13 @@
 		for (i = 0; i < midPanel.tabs.length; i++) {
 					midPanel.tabs[i].status = 0;
 					midPanel.tabs[i].style.transform = "translate(-100%, 0%)"					
-				***REMOVED***
+				}
 		for (j = 1; j < blockButton.length; j+=2){
 					blockButton[j].status = 0;
 					blockButton[j].style.opacity = 0;
-				***REMOVED***
+				}
 		rPanel.style.transform = "translate(0%, 0%)"
-	***REMOVED***)
+	})
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // ~*What 2 Buy*~
@@ -208,13 +208,13 @@ what2buy.layout = function(){
 		// calculate maxH 
 		// maxH = maxW * naturalH / naturalW 
 		// maxW = (w-btnMargin)*0.8
-	***REMOVED***
-***REMOVED***
+	}
+}
 what2buy.alignLastItem = function(){
 	var offset =what2buy.offsetHeight*this.currentItem;
 	this.scrollTo(null, offset);
 	console.log('scrolling');
-***REMOVED***
+}
 
 for (i = 0; i < what2buy.hexFrame.length; i++) {
 	what2buy.hexFrame[i].addEventListener('click', function(event){
@@ -231,10 +231,10 @@ for (i = 0; i < what2buy.hexFrame.length; i++) {
 				break;
 			default:
 				console.log("something wrong: check cssTransform on .product");
-		***REMOVED***
+		}
 		
-	***REMOVED***)
-***REMOVED***
+	})
+}
 what2buy.arrowUp[0].classList.add('hidden')
 for (var i = 1; i < what2buy.arrowUp.length; i++) {
 	what2buy.arrowUp[i].addEventListener('click', function(event){
@@ -243,11 +243,11 @@ for (var i = 1; i < what2buy.arrowUp.length; i++) {
 			top: -midPanel.offsetHeight,
 			left: 0,
 			behavior: "smooth"
-		***REMOVED***)
+		})
 		console.log(what2buy.currentItem);
 		// what2buy.currentItem = (i-1);
-	***REMOVED***)
-***REMOVED***
+	})
+}
 
 what2buy.arrowDown[what2buy.arrowDown.length-1].classList.add('hidden')
 for (var i = 0; i < what2buy.arrowDown.length-1; i++) {	
@@ -257,16 +257,16 @@ for (var i = 0; i < what2buy.arrowDown.length-1; i++) {
 			top: midPanel.offsetHeight,
 			left: 0,
 			behavior: "smooth"
-		***REMOVED***);
+		});
 		// what2buy.currentItem = (i+1);
 		console.log(what2buy.currentItem);
-	***REMOVED***)
+	})
 	// if (i == (what2buy.arrowDown.length - 2)) {
-	// 	what2buy.arrowDown[i].addEventListener('click', function(event){what2buy.lastItem = true***REMOVED***);
-	// ***REMOVED***else{
-	// 	what2buy.arrowDown[i].addEventListener('click', function(event){what2buy.lastItem = false***REMOVED***);
-	// ***REMOVED***
-***REMOVED***
+	// 	what2buy.arrowDown[i].addEventListener('click', function(event){what2buy.lastItem = true});
+	// }else{
+	// 	what2buy.arrowDown[i].addEventListener('click', function(event){what2buy.lastItem = false});
+	// }
+}
 
 
 var whoWeR = document.querySelector("#whoWeR");
@@ -283,9 +283,9 @@ whoWeR.layout = function(){
 		this.hexFrame[i].style.width =  this.hexFrame[i].offsetHeight * (aspect/1) + 'px';
 		if ((i+1)%2){
 			this.container[i].style.flexFlow = "row-reverse";
-		***REMOVED***
-	***REMOVED***
-***REMOVED*** 
+		}
+	}
+} 
 
 
 

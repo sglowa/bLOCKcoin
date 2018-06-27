@@ -4,23 +4,23 @@
 	src: 
 	url("../fonts/DINPro-Light.woff") format("woff"),
 	url("../fonts/DINPro-Light.otf") format("opentype")
-	***REMOVED***
+	}
 @font-face {
 	font-family: "DINProBold";
 	src: url("../fonts/DINPro-Medium.ttf");
 	src: 
 	url("../fonts/DINPro-Medium.woff") format("woff"),
 	url("../fonts/DINPro-Medium.otf") format("opentype")
-	***REMOVED***
+	}
 html, body{
 	width: 100%;
 	height: 100%;
 	margin: 0px;
-***REMOVED***
+}
 body{
 	opacity: 0;
 	transition: 3.0s ease-in-out;
-***REMOVED***
+}
 #canvasParent{
 	width: 100%;
 	height: 100%;
@@ -32,7 +32,7 @@ body{
 	z-index:-2;
 	position: absolute;
 	overflow: hidden;
-***REMOVED***
+}
 #container{
 	position: relative;
 	display: flex;
@@ -42,7 +42,7 @@ body{
 	min-width: 800px;	
 	min-height: 600px;
 	overflow: hidden;
-***REMOVED***
+}
 #menu{
 	margin-left: 7%;
 	height: 100%;
@@ -50,13 +50,13 @@ body{
 	overflow: hidden;
 	z-index: 1;
 	/*border: 1px solid blue;*/
-***REMOVED***
+}
 .menuItem{
 	z-index: 2;
 	height: 25%;
 	max-height: 250px;
 	position: relative;
-***REMOVED***
+}
 .menuItem > img{
 	width: auto;
 	height: 100%;
@@ -66,28 +66,28 @@ body{
 		/*shaking fix*/
 		-webkit-backface-visibility: hidden;
 	-webkit-transform: translateZ(0) scale(1.0, 1.0);
-***REMOVED***
+}
 /*.menuItem > img:hover{
 	background-color: red;
-***REMOVED****/
+}*/
 .menuItem:nth-of-type(1) > img{
 	transform: translate(0%,0%);
-***REMOVED***
+}
 .menuItem:nth-of-type(2) > img{
 	transform: translate(50%,-25%);
-***REMOVED***
+}
 .menuItem:nth-of-type(3) > img{
 	transform: translate(0%,-50%);
-***REMOVED***
+}
 .menuItem:nth-of-type(4) > img{
 	transform: translate(50%,-75%);
-***REMOVED***
+}
 .menuItem > img:nth-of-type(2){
 	opacity:0;
-***REMOVED***
+}
 .menuItem > img:nth-of-type(2):hover{
 	opacity:1;
-***REMOVED***
+}
 #rightPanel{
 	margin-top: -80px;
 	display: flex;
@@ -98,7 +98,7 @@ body{
 	transform: translateZ(0) translate(0%, 0%);
 	z-index: 2;
 	/*border: 1px solid red;*/
-***REMOVED***
+}
 #padLock{
 position: relative;	
 left: 50%;
@@ -108,37 +108,37 @@ object-fit: contain;
 transform: translate(-50%,0%);
 z-index: -1;
 filter: invert(100%);
-***REMOVED***
+}
 #txtLogo{
 	height: 20%;
 	width: 75%;
 	display: flex;
 	align-self: center;
 
-***REMOVED***
+}
 #logoNoHover{
 	height: 100%;
 	width: 100%;
 	margin: auto;
 	display: block;
 	object-fit: contain;
-***REMOVED***
+}
 #unLockLink{			
 	position: absolute;
 	transform: translate(-100%,-100%);
 	opacity: 0;			
-***REMOVED***
+}
 #unLockLink:hover{
 	opacity: 1;
 	cursor:pointer;
-***REMOVED***
+}
 #midPanel{
 	z-index: 0;
 	position: absolute;;
 	/*border: 1px green solid;*/
 	overflow: hidden;
 	min-width: 600px;
-***REMOVED***
+}
 .midTab{
 	width: 100%;
 	height: 100%;
@@ -147,39 +147,39 @@ filter: invert(100%);
 	background: linear-gradient(to right, hsla(0, 0%, 0%, 0.75) 0%, hsla(0, 0%, 0%, 0.73) 26.6%, hsla(0, 0%, 0%, 0.675) 46.9%, hsla(0, 0%, 0%, 0.594) 61.9%, hsla(0, 0%, 0%, 0.495) 72.6%, hsla(0, 0%, 0%, 0.386) 80%, hsla(0, 0%, 0%, 0.277) 85%, hsla(0, 0%, 0%, 0.175) 88.5%, hsla(0, 0%, 0%, 0.09) 91.5%, hsla(0, 0%, 0%, 0.028) 95%, hsla(0, 0%, 0%, 0) 100%);
 	transition: 1.5s ease-in-out;
 	overflow: scroll;
-***REMOVED***
+}
 .midTabTxt{
 	display: block;	
 	font-family: "DINPro";
-***REMOVED***
+}
 #whatItIs .midTabTxt, #how2Buy .midTabTxt{
 	padding-right: 15%;
 	color:white;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-***REMOVED***
+}
 #whatItIs .scrip{
 	width: 80%;
-***REMOVED***
+}
 #whatItIs img{
 	width: 100%;	
-***REMOVED***
+}
 #what2buy{
 	overflow: hidden;
-***REMOVED***
+}
 
 ul {
 	padding-left: 0px;
 	margin: 0px;
-***REMOVED***
+}
 
 li {
 	display: flex;
 	justify-content: center;
 	flex-flow: column;
 	/*border: 1px solid cyan;*/
-***REMOVED***
+}
 
 #what2buy .hexFrame{
 	/*border: solid 1px red;*/
@@ -194,11 +194,11 @@ li {
 	backface-visibility: hidden;
 	background-color: white;
 
-***REMOVED***
+}
 #what2buy .hexFrame:hover{
 	transform: scale(1.066);
 	cursor:pointer;
-***REMOVED***
+}
 
 div.hexBorder{
 	height: 100%;
@@ -208,21 +208,21 @@ div.hexBorder{
     display: flex;
     z-index: 1;
     clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 3% 25%, 3% 74%, 50% 94%, 97% 74%, 97% 26%, 50% 6%, 3% 26%, 0% 75%);
-***REMOVED***
+}
 
 img.product{
 	height: 100%;
-***REMOVED***
+}
 div.product{	
 	display: flex;	
 	justify-content: center;
-***REMOVED***
+}
 img.product, div.product{
 	flex-shrink: 0;
 	width: 100%;
 	transform: translateX(-100%);
 	transition: transform 1s ease-in-out;
-***REMOVED***
+}
 
 li .midTabTxt{
 	padding-left: 30px;
@@ -238,71 +238,71 @@ li .midTabTxt{
 	width: 100%;
 	height: 25%;
 	align-self: center;
-***REMOVED***
+}
 
 li .midTabTxt .box{
 	flex:1;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-***REMOVED***
+}
 
 li .midTabTxt .line{
 	width: 80%;
 	height: 3px;
 	background-color: black;
 	box-shadow: 0px 3.3px 7px 3px #949494;
-***REMOVED***
+}
 
 .box.price p {
 	font-size: 40px;
 	margin: 10px auto 10px auto  ;
 	font-family: "DINProBold";
-***REMOVED***
+}
 
 .box.info p{
 	margin: 10px auto auto auto;
-***REMOVED***
+}
 
 .arrow{
 	display: block;
 	align-self: center;
 	height: 8%;	
 	width: auto;
-***REMOVED***
+}
 .arrow > img{
 	height: 100%;
 	width: auto;
 	transition: transform 0.33s ease-in-out;
 	transform: scale(1.0);
-***REMOVED***
+}
 .arrow:not(.hidden) > img:hover{
 	transform: scale(1.1);
 	cursor:pointer;
-***REMOVED***
+}
 .arrow.up{
 	margin-top: 20px
-***REMOVED***
+}
 .arrow.down{
 	margin-bottom: 20px
-***REMOVED***
+}
 .arrow.hidden{
 	opacity: 0;
-***REMOVED***
+}
 #how2Buy h1{
 	-webkit-margin-after:0.11em;
-***REMOVED***
+}
 #how2Buy h2{
 	text-align: center;
 	-webkit-margin-after:0.5em;
 	-webkit-margin-before:0.5em;
-***REMOVED***
+}
 #how2Buy .line{
 	height: 2px;
 	width: 100%;
 	background-color: white;	
 	margin: -6px;
-***REMOVED***
+}
 
 #logosContainer{
 	/*border: solid 1px red;*/
@@ -316,27 +316,27 @@ li .midTabTxt .line{
     align-items: flex-start;
     justify-content: space-around;
     z-index: 5;
-***REMOVED***
+}
 #logosContainer a{
 	height: 100%;
-***REMOVED***
+}
 #logosContainer img{
    	/*max-width: 20%;*/
    	max-width: 90%;
     height: 80%;
     object-fit: contain;
     z-index: 6;
-***REMOVED***
+}
 #logosContainer img:hover{
 	transform: scale(1.033);
 	cursor:pointer;
-***REMOVED***
+}
 #whoWeR .bioPanel{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	padding: 15px 15% 15px 0px;
-***REMOVED***
+}
 #whoWeR .bioContainer{
 	display: flex;
 	height: 28%;
@@ -344,7 +344,7 @@ li .midTabTxt .line{
 	padding-right: 5%;
 	align-items: center;
 	overflow: hidden;
-***REMOVED***
+}
 #whoWeR .hexFrame{
 	height: 100%;
 	align-self: center;
@@ -355,11 +355,11 @@ li .midTabTxt .line{
 	clip-path: polygon(0.66% 25%, 50% 0.66%, 99.33% 25%, 99.33% 75%, 50% 99.33%, 0.66% 75%);
 	transform: scale(1.033);
 	background-color: white;
-***REMOVED***
+}
 #whoWeR img{
 	height: 100%;
 	transform: translateX(-100%) scale(0.95);
-***REMOVED***
+}
 #whoWeR .midTabTxt{
 	color :white;
     text-align: justify;
@@ -369,21 +369,21 @@ li .midTabTxt .line{
     justify-content: center;
     height: 100%;
     
-***REMOVED***
+}
 #whoWeR .margin{
 	width: 15px;
 	flex-shrink: 0;
-***REMOVED***
+}
 #whoWeR .jobTitle{
 	font-size: medium;
 	margin-bottom: 5px;
-***REMOVED***
+}
 #whoWeR .name{
 	font-family: "DINProBold";
-***REMOVED***
+}
 canvas{
 	z-index: -2 !important;
-***REMOVED***
+}
 
 
 
