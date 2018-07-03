@@ -4,13 +4,13 @@
 // }
 
 var cubes = [];
-var numCubes = 60;
+var numCubes = Math.floor((window.screen.height*window.screen.width)/40000)+1;
 var cnv;
 var img;
 
 function setup(){
 	cnv = createCanvas(window.screen.width, window.screen.height);
-	cnv.position(0, 0);
+	cnv.position(0,0);	
 	// cnv.style('z-index', '-1');
 	cnv.parent("canvasParent");
   	img = loadImage("imgs/block_white_mini.png");
@@ -23,6 +23,7 @@ function setup(){
 }
 
 function draw(){
+	// cnv.position(window.visualViewport.offsetLeft, window.visualViewport.offsetTop);
 	background(255);
 
 	for(j=0;j<numCubes;j++){

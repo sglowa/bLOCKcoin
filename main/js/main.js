@@ -21,7 +21,7 @@
 
 		mapUnLock();
 		midPanel.alignSelf();
-		
+
 		what2buy.whRatio = what2buy.productImg[0].naturalWidth/what2buy.productImg[0].naturalHeight;
 		what2buy.layout();
 		whoWeR.layout();
@@ -89,6 +89,7 @@
 		var clipHorizontal = (100 * ((blockButton[0].width * 0.5) / this.offsetWidth)) + "%";
 		var clipVertical = (100 * ((blockButton[0].height * 0.25) / this.offsetHeight)) + "%";
 		this.style.clipPath = "polygon(0% 0%, 100% 0%, 100% 100%, " + clipHorizontal + " 100%, 0% " + clipVertical + ")"; 
+		this.style.WebkitClipPath = "polygon(0% 0%, 100% 0%, 100% 100%, " + clipHorizontal + " 100%, 0% " + clipVertical + ")"; 
 		// ~~~~~~~~~~~~. txt. ~~~~~~~~~~~~~~~~~. 
 		for (var i = 0; i < this.tabTxt.length; i++) {
 			this.tabTxt[i].style.paddingLeft = blockButton[0].width + 33 + "px";
