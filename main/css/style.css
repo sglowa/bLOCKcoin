@@ -137,7 +137,7 @@ filter: invert(100%);
 	z-index: 1;
 	position: absolute;;
 	/*border: 1px green solid;*/
-	overflow: hidden;
+	overflow: hidden;	
 	min-width: 600px;
 }
 .midTab{

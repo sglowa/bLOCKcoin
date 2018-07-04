@@ -23,7 +23,9 @@ function setup(){
 }
 
 function draw(){
-	// cnv.position(window.visualViewport.offsetLeft, window.visualViewport.offsetTop);
+	if(window.visualViewport != undefined){
+	cnv.position(window.visualViewport.offsetLeft, window.visualViewport.offsetTop);	
+	}
 	background(255);
 
 	for(j=0;j<numCubes;j++){
