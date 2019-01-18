@@ -372,8 +372,10 @@ li .midTabTxt .line{
     font-size: small;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 100%;    
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;    
 }
 
 #whoWeR .margin{
@@ -384,6 +386,11 @@ li .midTabTxt .line{
 	font-size: medium;
 	margin-bottom: 5px;
 }
+
+#whoWeR .bioTxt{
+	max-height: 80%;
+}
+
 #whoWeR .name{
 	font-family: "DINProBold";
 }
@@ -392,6 +399,44 @@ canvas{
 	position: fixed !important;
 	z-index: -2 !important;
 }
+
+#greyBg {
+    position: fixed;
+    background-color: #808080eb;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+}
+
+#greyBg #slider {	
+    height: 80%;
+    position: absolute;
+    align-self: center;
+    display: flex;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#greyBg #tablet{	
+    height: 80%;
+    align-self: center;
+}
+#slider img{
+	height: 100%;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
 
 
 
