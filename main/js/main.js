@@ -167,7 +167,7 @@
 	} 
 
 
-	document.body.addEventListener("click", function(){
+	document.querySelector("#container").addEventListener("click", function(e){
 
 		for (i = 0; i < midPanel.tabs.length; i++) {
 					midPanel.tabs[i].status = 0;
@@ -178,6 +178,7 @@
 					blockButton[j].style.opacity = 0;
 				}
 		rPanel.style.transform = "translate(0%, 0%)"
+		
 	})
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -288,9 +289,137 @@ whoWeR.layout = function(){
 	}
 } 
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~how2buy~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+var how2buyMans = document.querySelectorAll("#how2Buy .manual");
+
+window.addEventListener('load',function(){how2buyMans.btnEvents()},false);
+
+how2buyMans.btnEvents = function(){
+	// selecting buttons
+	how2buyMans.buttons = document.querySelectorAll(".manual");
+	var _this = this;
+  	for (var i = 0; i < this.buttons.length; i++) {
+	  	this.buttons[i].addEventListener("click",function(e){
+	  		_this.loadTablet();
+	  		_this.loadImages(e.currentTarget.parentElement.dataset.val);
+	  		_this.swipes();
+  		})
+  	}
+}
 
 
+how2buyMans.loadTablet = function(){
+	var tabletBg = document.createElement('div');
+	tabletBg.setAttribute('id', 'tabletBg');
+	document.querySelector("#container").style.setProperty("opacity", 0);
+	document.body.appendChild(tabletBg);	
 
+	this.slider = document.createElement('div');
+	this.slider.setAttribute('id', 'slider');
+	tabletBg.appendChild(this.slider);
+
+	var tablet = document.createElement('img');
+	tablet.src = "imgs/manuals/tablet.png";
+	tablet.setAttribute('id', 'tablet');
+	tabletBg.appendChild(tablet);
+
+	tablet.onload = function(){
+		how2buyMans.slider.style.width = tablet.offsetWidth + 'px';
+		tabletBg.style.setProperty('opacity',1);
+	}
+
+	window.addEventListener('resize', resizeThrottler, false);
+	var resizeTimeout;
+	function resizeThrottler(){
+		if( !resizeTimeout ){
+			resizeTimeout = setTimeout(function(){
+				resizeTimeout = null;
+				actualResizeHandler();
+			}, 66);
+		}
+	}
+
+	function actualResizeHandler(){
+		how2buyMans.slider.style.width = tablet.offsetWidth + 'px';
+	}
+
+// remove when click off tablet
+	tabletBg.addEventListener('mousedown', function(event){
+		if(event.target == event.currentTarget){
+			document.querySelector("#container").style.setProperty("opacity", 1);
+			tabletBg.style.setProperty("opacity", 0);
+			setTimeout(function(){tabletBg.remove()},1000)					
+		}
+		// swipes back the mid panel when clicked off tablet
+		event.stopPropagation();
+	},false);
+
+}
+
+how2buyMans.loadImages = function(dir){
+	this.imgs = [];
+	var directory = "imgs/manuals/" + dir + "/cropped/manual"
+	var imgNum;
+	// var slider = document.getElementById('slider');
+	switch(dir){
+		case "How2Buy":
+			imgNum = 39;
+			break;
+		case "CurrencyExchange":
+			imgNum = 29;
+			break;
+		case "Collectibles":
+			imgNum = 23;
+			break;
+		case "Vendor":
+			imgNum = 8;
+	}
+	for (var i = 0; i < imgNum; i++) {
+		this.imgs.push(document.createElement('img')) 
+		this.imgs[i].src = directory + (i+1) + ".png";
+		this.slider.appendChild(this.imgs[i]);
+	}
+}
+
+// swipe/click events
+how2buyMans.swipes = function(){
+	var _imgs = this.imgs
+	// unifyiing touch and click 
+	function unify(e) {return e.changedTouches ? e.changedTouches[0] : e};
+	// coords of initial pointer
+	var x0 = null;
+
+	function lock(e){ x0 = unify(e).clientX; console.log(e.target)};
+
+	var i = 0;
+
+	function move(e){
+		if(x0 || x0 === 0){
+			// store direction of swipe
+			var dx = unify(e).clientX - x0;
+			var s = Math.sign(dx);
+
+
+			if((i > 0 || s < 0) && (i < _imgs.length - 1 || s > 0)){
+				var d = (i-=s)*-100;
+				for (var j = 0; j < _imgs.length; j++) {
+					_imgs[j].style.setProperty("transform", "translateX("+d+"%)");
+				}
+				console.log(i);
+			};
+
+			x0 = null;			
+		}
+		console.log(e.target);
+	};
+
+	this.slider.addEventListener('mousedown', lock, false);
+	this.slider.addEventListener('touchstart', lock, false);
+	this.slider.addEventListener('mouseup', move, false);
+	this.slider.addEventListener('touchend', move, false);
+	this.slider.addEventListener('touchmove', e => {e.preventDefault()}, false);
+}
 
 
 

@@ -42,6 +42,7 @@ body{
 	min-width: 800px;	
 	min-height: 600px;
 	overflow: hidden;
+	transition: opacity 1s ease-in-out;
 }
 #menu{
 	margin-left: 7%;
@@ -307,6 +308,58 @@ li .midTabTxt .line{
 	margin: -6px;
 }
 
+#how2Buy sup{
+	margin-left: 10px;
+	display: inline-block;
+}
+
+#how2Buy sup:hover div{
+	width: 100%;
+}
+
+#how2Buy sup div{
+	background-color: white;
+    display: block;
+    width: 0%;
+    height: 2px;
+    margin: -2px auto auto auto;
+    transition: width 0.33s ease-in-out;;
+}
+
+#how2Buy a {
+	color: white;
+	text-decoration: none;
+}
+
+#how2Buy .manual{
+	display: inline-block;
+	transition: transform 0.33s ease-in-out; 
+}
+
+#how2Buy .manual:hover{
+	/*transform: scale(1.066);*/
+	cursor: pointer;
+}
+
+#how2Buy .manual:hover div{
+	width: 100%;
+}
+
+#how2Buy .manual div{
+    background-color: white;
+    display: block;
+    width: 0%;
+    height: 2px;
+    margin: 5px auto auto auto;
+    transition: width 0.33s ease-in-out;
+}
+
+#how2Buy p {
+	margin: auto;
+    display: block;
+    text-align: center;
+}
+
 #logosContainer{
 	/*border: solid 1px red;*/
 	position: absolute;
@@ -400,9 +453,10 @@ canvas{
 	z-index: -2 !important;
 }
 
-#greyBg {
+#tabletBg {
     position: fixed;
-    background-color: #808080eb;
+    opacity: 0;
+    transition:opacity 1s ease-in-out;
     top: 0px;
     height: 100%;
     width: 100%;
@@ -411,23 +465,29 @@ canvas{
     justify-content: center;
 }
 
-#greyBg #slider {	
+#tabletBg #slider {	
     height: 80%;
     position: absolute;
     align-self: center;
     display: flex;
-    overflow: hidden;
-    z-index: -1;
+    overflow: hidden;    
 }
 
-#greyBg #tablet{	
+#tabletBg #tablet{	
     height: 80%;
     align-self: center;
+    transition: opacity 1s ease-in-out;
 }
 #slider img{
+	z-index: -1;
 	height: 100%;
     width: 100%;
+    pointer-events: none;
+    transition: transform .5s ease-out, opacity 1s ease-in-out;
+    background-color: white;
 }
+
+
 
 
 
